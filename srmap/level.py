@@ -115,3 +115,8 @@ class Level:
                             len(self.description), self.description.encode('ascii'), self.workshop_id)
         with gzip.open(path, 'wb') as f:
             f.write(data)
+
+    def tilemapIndex(self, tilemap_name):
+        for index, tm in enumerate(self.tilemaps):
+            if tm.name == tilemap_name:
+                return index
