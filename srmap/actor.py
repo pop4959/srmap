@@ -1,3 +1,5 @@
+from enum import Enum
+
 class ActorType(Enum):
 	# These are all of the currently in-use actors in the game. Many of them will crash the game when used in a map.
 	PLAYER = "Player"
