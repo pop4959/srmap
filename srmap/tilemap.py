@@ -12,6 +12,25 @@ class Size(Enum):
     SMALL = (600, 300)
     MEDIUM = (800, 400)
     LARGE = (1000, 500)
+    
+    
+class TileID(Enum):
+    AIR = 0
+    BLOCK = 1
+    WALL_L = 2
+    GRAPPLE = 3
+    WALL_R = 4
+    SLOPE_BL = 6
+    SLOPE_BR = 7
+    SLOPE_TR = 12
+    SLOPE_TL = 13
+    STAIR_BL = 8
+    STAIR_BR = 9
+    CHECKER = 5
+    CHECKER_BL = 10
+    CHECKER_BR = 11
+    CHECKER_TR = 14
+    CHECKER_TL = 15
 
 
 class Tilemap:
