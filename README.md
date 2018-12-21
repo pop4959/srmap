@@ -14,4 +14,4 @@ lvl = level.Level()
 lvl.save('map.sr')
 ```
 
-Once you have the level, you will need to replace another one in the `{STEAM}/userdata/{NUMBER}/207140/remote/` directory with it, where `{STEAM}` is your Steam installation path, and `{NUMBER}` is a Steam ID associated with the account you will be opening the game with. Then, simply start the game and you can play/edit/publish your level.
+Once you have the level, you will need to replace another one in the `{STEAM}/userdata/{ID}/207140/remote/` directory with it, where `{STEAM}` is your Steam installation path, and `{ID}` is the Steam ID3 associated with the account you will be opening the game with. Then, simply start the game and you can play/edit/publish your level.
