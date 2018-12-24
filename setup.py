@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="srmap",
-    version="0.0.1",
+    version="0.0.2",
     author="pop4959",
     author_email="pop4959@gmail.com",
     description="SpeedRunners map editing library",

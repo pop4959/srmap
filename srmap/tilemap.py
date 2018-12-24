@@ -12,8 +12,8 @@ class Size(Enum):
     SMALL = (600, 300)
     MEDIUM = (800, 400)
     LARGE = (1000, 500)
-    
-    
+
+
 class TileID(Enum):
     AIR = 0
     BLOCK = 1
@@ -38,10 +38,10 @@ class Tilemap:
         self.name = name.value if isinstance(name, Name) else name
         self.width = size.value[0] if isinstance(size, Size) else size[0]
         self.height = size.value[1] if isinstance(size, Size) else size[1]
-        self.tilemap = [[0]*self.width]*self.height if tilemap is None else tilemap
+        self.tilemap = [[0 for y in range(self.height)] for x in range(self.width)] if tilemap is None else tilemap
 
     def __getitem__(self, p):
-        return self.tilemap[p[1]][p[0]]
+        return self.tilemap[p[0]][p[1]]
 
     def __setitem__(self, p, value):
-        self.tilemap[p[1]][p[0]] = value
+        self.tilemap[p[0]][p[1]] = value

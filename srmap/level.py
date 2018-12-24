@@ -64,11 +64,11 @@ class Level:
                 tilemap_name = f.read(struct.unpack('<b', f.read(1))[0]).decode('ascii')
                 tilemap_size = struct.unpack('<ii', f.read(8))
                 tilemap = []
-                for y in range(tilemap_size[1]):
-                    tilemap_row = []
-                    for x in range(tilemap_size[0]):
-                        tilemap_row.append(struct.unpack('<i', f.read(4))[0])
-                    tilemap.append(tilemap_row)
+                for y in range(tilemap_size[0]):
+                    tilemap_col = []
+                    for x in range(tilemap_size[1]):
+                        tilemap_col.append(struct.unpack('<i', f.read(4))[0])
+                    tilemap.append(tilemap_col)
                 self.tilemaps.append(Tilemap(tilemap_name, tilemap_size, tilemap))
             self.theme = f.read(struct.unpack('<b', f.read(1))[0]).decode('ascii')
             self.is_singleplayer = False if struct.unpack('<b', f.read(1))[0] == 0 else True
@@ -100,11 +100,11 @@ class Level:
             tilemap = self.tilemaps[i]
             t_data += struct.pack('<b{}sii'.format(len(tilemap.name)), len(tilemap.name), tilemap.name.encode('ascii'),
                                   tilemap.width, tilemap.height)
-            for y in range(tilemap.height):
-                r_data = b''
-                for x in range(tilemap.width):
-                    r_data += struct.pack('<i', tilemap.tilemap[y][x])
-                t_data += r_data
+            for y in range(tilemap.width):
+                c_data = b''
+                for x in range(tilemap.height):
+                    c_data += struct.pack('<i', tilemap.tilemap[y][x])
+                t_data += c_data
             data += t_data
         data += struct.pack('<b{}sb'.format(len(self.theme)), len(self.theme), self.theme.encode('ascii'),
                             self.is_singleplayer)
@@ -116,7 +116,7 @@ class Level:
         with gzip.open(path, 'wb') as f:
             f.write(data)
 
-    def tilemapIndex(self, tilemap_name):
+    def tilemap_index(self, tilemap_name):
         for index, tm in enumerate(self.tilemaps):
             if tm.name == tilemap_name:
                 return index
