@@ -20,7 +20,7 @@ class ActorType(Enum):
 	PLAYER_START = "PlayerStart"
 	DOOR = "Door"
 	TRIGGER = "Trigger"
-	SWICH = "Switch"
+	SWITCH = "Switch"
 	SUPER_BOOST_SPRITE = "SuperBoostSprite"
 	TREE = "Tree"
 	DOVE = "Dove"
